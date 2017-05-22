@@ -6,24 +6,52 @@ namespace Parcels.Objects
     private float _width;
     private float _height;
     private float _weight;
+    // private string _errorMessage = "";
 
-    public string GetVolume()
+
+    public float GetVolume()
     {
-      float volume = _length * _width * _height;
-      return volume;
+      return _length * _width * _height;
     }
-    public string GetShipping()
+    public float GetShipping()
     {
-      float shippingCost = _weight * volume / 2;
+      float shippingCost = _weight + (_length * _width * _height)/ 2;
       return shippingCost;
     }
-
-    public void SetDimensions(float newLength; float newWidth; float newHeight; float newWeight )
+    public float Getlength()
     {
-      _length = newLength;
-      _width = newWidth;
-      _height = newHeight;
-      _weight = newWeight;
+      return _length;
+    }
+    public float Getwidth()
+    {
+      return _width;
+    }
+    public float Getheight()
+    {
+      return _height;
+    }
+    public float Getweight()
+    {
+      return _weight;
+    }
+    // public string GetErrorMessage()
+    // {
+    //   return _errorMessage;
+    // }
+    public void SetDimensions(string newLength, string newWidth, string newHeight, string newWeight)
+    {
+      // if ((newLength != "") && (newWidth != "") && (newHeight != "") && (newWeight != ""))
+      // {
+        _length = float.Parse(newLength);
+        _width = float.Parse(newWidth);
+        _height = float.Parse(newHeight);
+        _weight = float.Parse(newWeight);
+
+      // }
+      // else
+      // {
+      //   _errorMessage = "Error, Please Enter Appropriate Values!";
+      // }
     }
   }
 }
